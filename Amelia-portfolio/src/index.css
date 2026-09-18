@@ -1,0 +1,115 @@
+:root {
+  --bg-base: #2e5846; 
+  
+  --grid-line: rgba(255, 255, 255, 0.252);
+  --grid-size: 48px;
+
+
+  --glass-bg: rgba(10, 15, 12, 0.75);
+  --glass-bg-hover: rgba(10, 15, 12, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-border-hover: rgba(255, 255, 255, 0.3);
+
+
+  --text-primary: #F9FAFB;
+  --text-secondary: #cbd1dd;
+  
+  --accent-yellow: #f9e198;
+  --text-hover:rgb(38, 38, 38);
+
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --font-sketch: 'Caveat', cursive;
+   --edge-fade: rgba(46, 88, 70, 0.92);
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glass:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+}
+
+.sketch-highlight {
+  font-family: var(--font-sketch);
+  color: var(--accent-yellow);
+  font-size: 4em;
+  font-weight: 800;
+  display:inline-block;
+  transform:rotate(-0.5deg);
+  line-height: 1;
+}
+
+.grid-background {
+  position: fixed; 
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-color: var(--bg-base); 
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-base);
+}
+
+
+.scroll-edge-blur {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;           
+  z-index: 90;             
+  pointer-events: none;    
+  /* 1. Colour fade */
+  background: linear-gradient(to bottom, transparent, var(--edge-fade) 95%);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 100%);
+}
