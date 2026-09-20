@@ -13,6 +13,7 @@ const projects = [
       id: 1,
       type: "Hardware",
       title: "Keyboard81X",
+      image: "/keyboard81.png",
       description: "A custom keyboard powered by a Raspberry Pi Pico and KMK",
       tags: ["Python", "KiCad", "Fusion360", "KMK", "3d Printing", "Pi Pico"]
     },
@@ -20,6 +21,7 @@ const projects = [
       id: 2,
       type: "Hardware",
       title: "Achroma",
+      image: "/achroma2.png",
       description: "A custom wireless split keyboard powered by ZMK",
       tags: ["ZMK", "Fusion360", "KiCad", "3d Printing"]
     },
@@ -27,6 +29,7 @@ const projects = [
       id: 3,
       type: "Hardware",
       title: "Focus Display",
+      image: "/Focus_Display.png",
       description: "A personal device that is powered by a ESP32 with an E-ink display.",
       tags: ["ESP32", "3d Printing", "Fusion360" , "C++"]
     }
@@ -63,8 +66,8 @@ function App() {
          
          <p>A 15 year old who's really into Hardware and Software.</p>
          <div className="hero-buttons">
-          <button className= "btn btn-primary">View Projects</button>
-          <button className= "btn btn-glass">Get in Touch</button>
+          <a href="#projects" className="btn btn-primary">View Projects</a>
+          <a href="#contact" className="btn btn-glass">Get in Touch</a>
         </div>
         </motion.section>
 
@@ -81,14 +84,38 @@ function App() {
           </div>
 
           <div className="projects-grid">
-            {projects.map((project) => (
-              <div key={project.id} className="project-card glass">
-                <div className="project-tags">
-                  {project.tags.map((tag,index) => (
-                    <span key={index} className="tag">{tag}</span>
-                  ))}
+            {projects.map((project, index) => (
+              <motion.div 
+                key={project.id} 
+                className="project-card glass"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                {project.image && (
+                  <div className="project-image">
+                    <img 
+                      src={project.image} 
+                      alt={`Screenshot of the ${project.title} project`}
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+
+                <div className="project-content">
+                  <div className="card-meta">
+                    <span className="card-type">{project.type}</span>
+                  </div>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <div className="project-tags">
+                    {project.tags.map((tag, i) => (
+                      <span key={i} className="tag">{tag}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.section>
