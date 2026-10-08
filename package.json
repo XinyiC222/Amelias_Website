@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://xinyic222.github.io/",
+  "homepage": "https://xinyic222.github.io/Amelias_Website/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
