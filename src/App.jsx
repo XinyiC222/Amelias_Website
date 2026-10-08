@@ -28,7 +28,7 @@ const projects = [
       id: 2,
       type: "Hardware",
       title: "Achroma",
-      image: "public/achroma2.png",
+      image: "./achroma2.png",
       description: "A custom wireless split keyboard powered by ZMK",
       tags: ["ZMK", "Fusion360", "KiCad", "3d Printing"],
       repo: "https://github.com/XinyiC222/Achroma"
@@ -37,7 +37,7 @@ const projects = [
       id: 3,
       type: "Hardware",
       title: "Focus Display",
-      image: "public/Focus_Display.png",
+      image: "./Focus_Display.png",
       description: "A personal device that is powered by a ESP32 with an E-ink display.",
       tags: ["ESP32", "3d Printing", "Fusion360" , "C++"],
       repo: "https://github.com/XinyiC222/Focus_Display"
@@ -48,7 +48,7 @@ const stickers = [
   {
     id: 1,
     name: "Music",
-    image: "public/sticker/guitarSticker.png",
+    image: "./sticker/guitarSticker.png",
     position: "top",
     side: "right",
     description: "I taught myself guitar back in 2020 during COVID. This is what I do to unwind after staring at the screen for too long!"
@@ -56,7 +56,7 @@ const stickers = [
   {
     id: 2,
     name: "Art",
-    image: "public/sticker/ArtSticker.png",
+    image: "./sticker/ArtSticker.png",
     position: "bottom",
     side: "left",
     description: "I like to paint during my free time! It's another way I unwind after a long day of school!"
