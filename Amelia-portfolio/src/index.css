@@ -1,7 +1,7 @@
 :root {
-  --bg-base: #2e5846; 
+  --bg-base: rgb(0, 51, 42); 
   
-  --grid-line: rgba(255, 255, 255, 0.252);
+  --grid-line: rgba(255, 255, 194, 0.252);
   --grid-size: 48px;
 
 
@@ -36,6 +36,15 @@ body {
   overscroll-behavior-y: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--bg-base);
+  background-image: url('/background.svg');
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+  position: relative;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 #root {
@@ -76,22 +85,6 @@ a {
   line-height: 1;
 }
 
-.grid-background {
-  position: fixed; 
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-
-  background-color: var(--bg-base); 
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: var(--grid-size) var(--grid-size);
-
-  /*offset!*/
-  background-position: -10px 0;
-}
-
 html {
   scroll-behavior: smooth;
   background-color: var(--bg-base);
@@ -116,3 +109,5 @@ html {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, #000 100%);
 }
+ 
+

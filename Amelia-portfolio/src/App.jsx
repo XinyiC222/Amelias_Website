@@ -7,6 +7,12 @@ import React from 'react';
 import { FaGithub, FaInstagram, FaLinkedin, FaTiktok } from 'react-icons/fa';
 import './App.css'
 
+
+function GitHubIcon() {
+  return (
+    <FaGithub size={30} />
+  );
+}
 //the Data
 const projects = [
     {
@@ -15,7 +21,8 @@ const projects = [
       title: "Keyboard81X",
       image: "/keyboard81.png",
       description: "A custom keyboard powered by a Raspberry Pi Pico and KMK",
-      tags: ["Python", "KiCad", "Fusion360", "KMK", "3d Printing", "Pi Pico"]
+      tags: ["Python", "KiCad", "Fusion360", "KMK", "3d Printing", "Pi Pico"],
+      repo: "https://github.com/XinyiC222/Keyboard81X"
     },
     {
       id: 2,
@@ -23,7 +30,8 @@ const projects = [
       title: "Achroma",
       image: "/achroma2.png",
       description: "A custom wireless split keyboard powered by ZMK",
-      tags: ["ZMK", "Fusion360", "KiCad", "3d Printing"]
+      tags: ["ZMK", "Fusion360", "KiCad", "3d Printing"],
+      repo: "https://github.com/XinyiC222/Achroma"
     },
     {
       id: 3,
@@ -31,15 +39,36 @@ const projects = [
       title: "Focus Display",
       image: "/Focus_Display.png",
       description: "A personal device that is powered by a ESP32 with an E-ink display.",
-      tags: ["ESP32", "3d Printing", "Fusion360" , "C++"]
+      tags: ["ESP32", "3d Printing", "Fusion360" , "C++"],
+      repo: "https://github.com/XinyiC222/Focus_Display"
     }
   ]
 
+const stickers = [
+  {
+    id: 1,
+    name: "Music",
+    image: "/sticker/guitarSticker.png",
+    position: "top",
+    side: "right",
+    description: "I taught myself guitar back in 2020 during COVID. This is what I do to unwind after staring at the screen for too long!"
+  },
+  {
+    id: 2,
+    name: "Art",
+    image: "/sticker/ArtSticker.png",
+    position: "bottom",
+    side: "left",
+    description: "I like to paint during my free time! It's another way I unwind after a long day of school!"
+  }
+]
+
 //The UI
 function App() {
+    const [activeSticker, setActiveSticker] = useState(null)
+
     return (
       <>
-        <div className="grid-background" aria-hidden="true" />
         <div className="scroll-edge-blur" aria-hidden="true" />
 
         <nav className = "navbar glass">
@@ -51,7 +80,18 @@ function App() {
               <li><a href = "#contact">Contact</a></li>
             </ul>
         </nav>
-        
+        {/* Paper Cut outs */}
+        {stickers.map((sticker) => (
+          <button
+            key={sticker.id}
+            className={`sticker sticker-${sticker.side}`}
+            style={{ [sticker.side === 'right' ? 'top' : 'bottom']: sticker.position }}
+            onClick={() => setActiveSticker(sticker)}
+            aria-label={`Learn more about ${sticker.name}`}
+          >
+            <img src={sticker.image} alt={sticker.name} />
+          </button>
+        ))}
 
         {/* Home */}
         <motion.section 
@@ -109,10 +149,25 @@ function App() {
                   </div>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
-                  <div className="project-tags">
-                    {project.tags.map((tag, i) => (
-                      <span key={i} className="tag">{tag}</span>
-                    ))}
+                  <div className="project-footer">
+                    {/* Tags on the left */}
+                    <div className="project-tags">
+                      {project.tags.map((tag, i) => (
+                        <span key={i} className="tag">{tag}</span>
+                      ))}
+                    </div>
+
+                    {project.repo && (
+                      <a
+                        href={project.repo}
+                        className="github-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View ${project.title} on GitHub`}
+                      >
+                        <GitHubIcon />
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -177,9 +232,25 @@ function App() {
         <footer>
           <p>Designed & Built with React + Vite • © 2026</p>
         </footer>
+      {/* Modal */}
+      {activeSticker && (
+        <div className="modal-overlay" onClick={() => setActiveSticker(null)}>
+          <div className= "modal-content glass" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="modal-close"
+              onClick={() => setActiveSticker(null)}
+              aria-label="Close"
+              >
+                ×
+              </button>
+              <img src={activeSticker.image} alt={activeSticker.name} className="modal-image" />
+              <h3>{activeSticker.name}</h3>
+              <p>{activeSticker.description}</p>
+          </div>
+        </div>
+      )}
       </>
   )
-
 }
 
 export default App
