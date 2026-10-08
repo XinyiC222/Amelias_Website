@@ -19,7 +19,7 @@ const projects = [
       id: 1,
       type: "Hardware",
       title: "Keyboard81X",
-      image: "/keyboard81.png",
+      image: "./keyboard81.png",
       description: "A custom keyboard powered by a Raspberry Pi Pico and KMK",
       tags: ["Python", "KiCad", "Fusion360", "KMK", "3d Printing", "Pi Pico"],
       repo: "https://github.com/XinyiC222/Keyboard81X"
