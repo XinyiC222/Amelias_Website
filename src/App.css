@@ -46,6 +46,7 @@
   line-height: 1.05;
   letter-spacing: -0.04em;
   margin-bottom: 24px;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .hero p {
@@ -55,6 +56,9 @@
   margin: 0 auto 40px;
   line-height: 1.6;
   font-weight: 800;
+  text-shadow: 
+    2px 3px 6px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(249, 225, 152, 0.3);
 }
 
 .hero-buttons {
@@ -102,13 +106,15 @@
   text-align: center;
   margin-bottom: 60px;
   margin-top: 40px;
-  filter: drop-shadow(-6px 8px 10px rgba(0,0,0,0.35));
 }
 
 .section-header h1 {
   font-size: clamp(1rem, 6vw, 4,6rem);
   font-weight: 800;
   margin-bottom: 12px;
+  text-shadow: 
+    2px 3px 6px rgba(0, 0, 0, 0.8),
+
 }
 
 .section-header p {
@@ -118,6 +124,9 @@
   margin: 0 auto 40px;
   line-height: 1.5;
   font-weight: 700;
+  text-shadow: 
+    2px 3px 6px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(194, 193, 191, 0.3);
 }
 
 .projects-grid {
@@ -281,9 +290,6 @@ footer {
   display:block;
 }
 
-@media (max-width: 768px) {
-  .sticker { display: none; }   /* hide on phones */
-}
 
 .modal-overlay {
   position: fixed;
@@ -338,4 +344,29 @@ footer {
 
 .modal-close:hover {
   color: var(--text-primary);
+}
+
+@media (max-width: 1024px) {
+
+  .sticker {
+    width: 120px;
+  }
+  .sticker-right {
+    right: -50px;
+  }
+  .sticker-left {
+    left: -50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sticker { display: none; }
+
+  .nav-logo {
+    display: none;
+  }
+  
+  .nav-links {
+    gap: 16px; 
+  }
 }
