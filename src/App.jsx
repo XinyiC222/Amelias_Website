@@ -14,6 +14,21 @@ function GitHubIcon() {
   );
 }
 //the Data
+const skills = [
+  {
+    category: "Hardware",
+    items: ["KiCad", "ESP32", "Raspberry Pi Pico", "3D Printing", "Soldering"]
+  },
+  {
+    category: "Software",
+    items: ["React", "Javascript", "Python", "C++", "Java"]
+  },
+  {
+    category: "Design & Tools",
+    items: ["Fusion 360", "OnShape", "VS Code", "Aesprite", "Godot", "KiCad"]
+  }
+]
+
 const projects = [
     {
       id: 1,
@@ -171,6 +186,35 @@ function App() {
                   </div>
                 </div>
               </motion.div>
+            ))}
+          </div>
+        </motion.section>
+        {/* Skills */}
+        <motion.section
+          id="skills"
+          className = "section-header"
+          initial={{opacity: 0, y: 60}}
+          whileInView={{opactiy: 1, y: 0}}
+          transition={{duration: 0.8, ease: "easeOut"}}
+          viewport={{once: true}}
+        >
+          <h1 className="sketch-highlight">My Skills!</h1>
+          <div className="skills-grid">
+            {skills.map((skillGroup, index) => (
+              <motion.dev
+                key={skillGroup.category}
+                className="skill-card glass"
+                initial={{ opactiy: 0, y:30 }}
+                whileInView={{opacity: 1, y:0}}
+                transition={{duration:0.5, delay: index * 0.15}}
+                viewport={{once:true}}
+                >
+                  <div className="skill-tags">
+                    {skillGroup.item.map((item) => (
+                      <span key={item} className="tag">{item}</span>
+                    ))}
+                  </div>
+                </motion.dev>
             ))}
           </div>
         </motion.section>
