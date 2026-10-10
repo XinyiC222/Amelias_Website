@@ -1,10 +1,6 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import { motion } from 'framer-motion'
-import React from 'react';
-import { FaGithub, FaInstagram, FaLinkedin, FaTiktok } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTiktok } from 'react-icons/fa';
 import './App.css'
 
 
@@ -194,27 +190,28 @@ function App() {
           id="skills"
           className = "section-header"
           initial={{opacity: 0, y: 60}}
-          whileInView={{opactiy: 1, y: 0}}
+          whileInView={{opacity: 1, y: 0}}
           transition={{duration: 0.8, ease: "easeOut"}}
           viewport={{once: true}}
         >
           <h1 className="sketch-highlight">My Skills!</h1>
           <div className="skills-grid">
             {skills.map((skillGroup, index) => (
-              <motion.dev
+              <motion.div
                 key={skillGroup.category}
                 className="skill-card glass"
-                initial={{ opactiy: 0, y:30 }}
+                initial={{ opacity: 0, y:30 }}
                 whileInView={{opacity: 1, y:0}}
                 transition={{duration:0.5, delay: index * 0.15}}
                 viewport={{once:true}}
                 >
+                  <h3>{skillGroup.category}</h3>
                   <div className="skill-tags">
-                    {skillGroup.item.map((item) => (
+                    {skillGroup.items.map((item) => (
                       <span key={item} className="tag">{item}</span>
                     ))}
                   </div>
-                </motion.dev>
+                </motion.div>
             ))}
           </div>
         </motion.section>
