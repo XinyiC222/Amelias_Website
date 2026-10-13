@@ -16,3 +16,12 @@ This website is mainly written in .jsx and .css files. This is my personal websi
 - .jsx files
 - stickers!
 - buttons and icons
+
+
+## How to Run it
+1. clone the project(prerequisites: ```node.js``` and ```git```)
+2. Install: ```npm install```
+3. In project directory: ```npm start```
+
+## To Edit
+go into ```src/``` to view all the files you can make changes to!
