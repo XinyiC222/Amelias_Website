@@ -1,5 +1,5 @@
 # Welcome To My Website!
-(<Screenshot 2026-10-13 at 3.22.06 PM.png>)
+<img width="1468" height="919" alt="Screenshot 2026-10-13 at 3 25 25 PM" src="https://github.com/user-attachments/assets/f27d0985-fe4f-49c1-9a61-0344380f92e6" />
 This website is mainly written in .jsx and .css files. This is my personal website/portfolio that I made for fun! Feel free to fork it but please credit me! Thank you.
 
 ## Built With
