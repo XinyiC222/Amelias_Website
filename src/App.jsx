@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaTiktok } from 'react-icons/fa';
 import './App.css'
+import MusicWidget from './MusicWidget'
 
 
 function GitHubIcon() {
@@ -273,6 +274,8 @@ function App() {
         <footer>
           <p>Designed & Built with React + Vite • © 2026</p>
         </footer>
+        {/*Music Player*/}
+        <MusicWidget />
       {/* Modal */}
       {activeSticker && (
         <div className="modal-overlay" onClick={() => setActiveSticker(null)}>
